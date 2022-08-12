@@ -1,0 +1,152 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.header {
+    background-color: $white;
+    color: $middleGray;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    @include bottomShadowMixin;
+    padding: 0 1.2rem 1.2rem 1.2rem;
+
+    @include for-desktop-up {
+        padding: 0;
+    }
+
+    .headerContainer {
+        width: 100%;
+        max-width: 1024px;
+        margin: 2em auto 4em auto;
+
+        @include for-tablet-landscape-up {
+            width: 95vw;
+        }
+
+        .headerTitle {
+            font-size: 2rem;
+            margin-top: 2em;
+
+            @include for-phone-only {
+                text-align: center;
+                font-size: 1.5rem;
+                margin-top: 1.5em;
+            }
+        }
+
+        .headerDescription {
+            margin: 1em 0;
+
+            @include for-phone-only {
+                text-align: center;
+                font-size: .9rem;
+                margin: 2em 0;
+            }
+        }
+
+        .headerSearch {
+            height: 30px;
+            background-color: $white;
+            border: 4px solid $lightBlue;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 26px 7px 26px 20px;
+            border-radius: $smallBR;
+            position: absolute;
+            bottom: -30px;
+            width: calc(100vw - 2.4rem);
+
+            @include for-desktop-up {
+                width: 1024px;
+            }
+
+            @include for-tablet-landscape-up {
+                max-width: calc(1024px - 2.4rem);
+                height: 70px;
+                margin: 0 auto;
+            }
+
+            @include for-phone-only {
+                position: absolute;
+                bottom: 0;
+                transform: translateY(50%);
+                padding: .5em;
+                flex-direction: column;
+                height: 170px;
+                max-width: calc(1024px - 2.4rem);
+                margin: 0 auto;
+                z-index: 10;
+
+            }
+
+            .headerSearchItem {
+                display: flex;
+                align-items: center;
+                gap: .8rem;
+
+                @include for-phone-only {
+                    width: 100%;
+                    border-bottom: 1px solid $lightBlue;
+                    justify-content: center;
+
+
+                    &:last-child {
+                        border: none;
+                    }
+                }
+
+                .headerIcon {
+                    color: $lightBlue;
+                }
+
+                .headerSearchInput {
+                    border: none;
+                    outline: none;
+                    font-weight: 400;
+                    color: $middleGray;
+                    font-size: 1rem;
+                }
+
+                .headerSearchText {
+                    cursor: pointer;
+                    color: $lightGray;
+                }
+
+                .date {
+                    position: absolute;
+                    top: 64px;
+                    z-index: 2;
+                    @include standartShadowMixin;
+
+                    @include for-phone-only {
+                        top: 75px;
+                    }
+                }
+
+                .headerSearchBtn {
+                    width: 100%;
+                    background-color: $lightGray;
+                    height: 40px;
+                    font-size: .9rem;
+                    color: $white;
+                    border: none;
+                    border-radius: $smallBR;
+                    font-weight: 500;
+                    padding-inline: 1.1em;
+                    cursor: pointer;
+                    transition: $transition;
+
+                    &:hover {
+                        background-color: $middleGray;
+                        @include thinShadowMixin;
+                    }
+                }
+            }
+        }
+    }
+
+    .listMode {
+        margin: 2em 0;
+    }
+}

@@ -1,0 +1,80 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.mail {
+    width: 100%;
+    margin-top: 2.75em;
+    background-color: $middleGray;
+    @include messageContainer;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 2.75em;
+    position: relative;
+
+    @include for-phone-only {
+        padding: 1.5em 1em;
+        margin-top: 1em;
+        text-align: center;
+    }
+
+    .mailTitle {
+        font-size: 2rem;
+
+        @include for-phone-only {
+            font-size: 1.5rem;
+        }
+    }
+
+    .mailDesc {
+        font-size: 1rem;
+
+        @include for-phone-only {
+            font-size: .9rem;
+        }
+    }
+
+    .mailInputContainer {
+        input {
+            width: 350px;
+            height: 50px;
+            padding: .65em;
+            border: none;
+            outline: none;
+            margin-right: $smallBR;
+            border-radius: $smallBR;
+
+            @include for-phone-only {
+                margin-right: 0;
+            }
+        }
+
+        button {
+            height: 50px;
+            padding-inline: 1.1rem;
+            outline: none;
+            border: none;
+            background-color: $lightBlue;
+            color: $white;
+            border-radius: $smallBR;
+            cursor: pointer;
+            transition: $transition;
+
+            &:hover {
+                background-color: $middleBlue;
+            }
+
+            @include for-phone-only {
+                width: 100%;
+            }
+        }
+
+        @include for-phone-only {
+            display: flex;
+            flex-direction: column;
+            gap: .5em;
+        }
+    }
+}

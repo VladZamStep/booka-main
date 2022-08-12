@@ -1,0 +1,134 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.chooseRoom {
+    width: 100vw;
+    height: 100vh;
+    background-color: $blackTransparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include flexCenterObject;
+    z-index: 2;
+    @include messageContainer;
+
+    .chooseRoomContainer {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 1.75em;
+        background-color: $white;
+        border-radius: $smallBR;
+        @include standartBlackShadowMixin;
+        min-width: 500px;
+
+        @include for-tablet-landscape-up {
+            max-height: 95vh;
+            padding: 1em;
+            width: 90%;
+            overflow: scroll;
+        }
+
+        @include for-phone-only {
+            padding: .75em;
+            min-width: 0;
+            margin: 1.1em;
+            overflow: scroll;
+        }
+
+        .closeCR {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 1.75rem;
+            transform: translate(-.25em, .25em);
+            cursor: pointer;
+            border-radius: $smallBR;
+            transition: $transition;
+
+            &:hover {
+                @include thinShadowMixin;
+            }
+        }
+
+        .selectRooms {
+            padding-bottom: 1em;
+            font-size: 1.1rem;
+        }
+
+        .cRItem {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2em;
+            padding: 1em;
+
+            @include for-tablet-landscape-up {
+                padding: .5em;
+            }
+
+            .cRItemInfo {
+                display: flex;
+                flex-direction: column;
+                flex: 4;
+
+                .cRTitle {
+                    font-weight: 500;
+                }
+
+                .cRDescription {
+                    font-size: .9rem;
+                }
+
+                .cRMaxPeople {
+                    font-size: .8rem;
+                }
+
+                .cRPrice {
+                    font-weight: 700;
+                }
+            }
+
+            .checkBoxRooms {
+                display: flex;
+                flex-wrap: wrap;
+                font-size: .65rem;
+                flex: 1;
+                gap: .25em;
+
+                .room {
+                    @include flexCenterObject;
+                    flex-direction: column;
+
+                    input {
+                        transform: scale(1.4);
+                        margin: .25rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .reserveBtn {
+            height: 40px;
+            font-size: .9rem;
+            background-color: $lightBlue;
+            color: $white;
+            border: none;
+            border-radius: $smallBR;
+            font-weight: 500;
+            padding-inline: 1.1em;
+            cursor: pointer;
+            transition: $transition;
+
+            &:hover {
+                background-color: $middleBlue;
+                @include thinShadowMixin;
+            }
+
+            @include for-tablet-landscape-up {
+                padding-block: .5em;
+            }
+        }
+    }
+}

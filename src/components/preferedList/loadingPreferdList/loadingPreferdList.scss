@@ -1,0 +1,80 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.loadingPrefListItem {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: .85rem;
+    animation: colorType 2s ease-in-out infinite;
+
+    .imgBlock {
+        background-color: $lightGray;
+        width: 100%;
+        height: 150px;
+        border-radius: $smallBR;
+        margin-bottom: .6em;
+
+        @include for-tablet-landscape-up {
+            height: 200px;
+        }
+
+        @include for-phone-only {
+            height: 250px;
+        }
+    }
+
+    .loadingPrefName,
+    .loadingPrefCity {
+        color: transparent;
+        text-transform: capitalize;
+        margin-bottom: .15rem;
+        background-color: $lightGray;
+        width: 160px;
+        border-radius: $smallBR;
+    }
+
+    .loadingPrefPrice {
+        color: transparent;
+        margin-bottom: .15rem;
+        background-color: $lightGray;
+        border-radius: $smallBR;
+    }
+
+    .loadingPrefRating {
+        color: transparent;
+        padding: .4em 0;
+
+        button {
+            padding: .2em;
+            outline: none;
+            border: none;
+            color: transparent;
+            margin-right: .5rem;
+            border-radius: $smallBR;
+            border-bottom-left-radius: 0;
+            background-color: $lightGray;
+        }
+
+        span {
+            color: transparent;
+            background-color: $lightGray;
+            border-radius: $smallBR;
+        }
+    }
+
+    @keyframes colorType {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: .5;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+}

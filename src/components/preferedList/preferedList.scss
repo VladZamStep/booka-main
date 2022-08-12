@@ -1,0 +1,86 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.prefList {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    gap: 1.25em;
+    justify-content: space-between;
+    padding: 0 1.2rem 1.5rem 1.2rem;
+
+
+    @include for-desktop-up {
+        padding: 0 0 1.5rem 0;
+    }
+
+    @include for-tablet-landscape-up {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include for-phone-only {
+        grid-template-columns: 1fr;
+    }
+
+    .prefListItem {
+        flex: 1;
+        overflow: hidden;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        font-size: .85rem;
+        transition: $transition;
+
+        &:hover {
+            transform: scale(1.04);
+        }
+
+        img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: $smallBR;
+            margin-bottom: .6em;
+
+            @include for-tablet-landscape-up {
+                height: 200px;
+            }
+
+            @include for-phone-only {
+                height: 250px;
+            }
+        }
+
+        .prefName,
+        .prefCity {
+            color: $middleGray;
+            text-transform: capitalize;
+            margin-bottom: .15rem;
+        }
+
+        .prefPrice {
+            color: $black;
+            margin-bottom: .15rem;
+        }
+
+        .prefRating {
+            color: $black;
+            padding: .4em 0;
+
+            button {
+                padding: .2em;
+                outline: none;
+                border: none;
+                background-color: $middleBlue;
+                color: $white;
+                margin-right: .5rem;
+                border-radius: $smallBR;
+                border-bottom-left-radius: 0;
+            }
+        }
+
+    }
+
+
+}

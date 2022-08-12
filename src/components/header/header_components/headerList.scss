@@ -1,0 +1,38 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.headerList {
+    display: flex;
+    gap: 2.25em;
+    flex-wrap: wrap;
+
+    @include for-tablet-landscape-up {
+        justify-content: center;
+        margin: 0 auto;
+        gap: 1.5em;
+    }
+
+    @include for-phone-only {
+        font-size: .9rem;
+    }
+
+    .headerListItem {
+        display: flex;
+        align-items: center;
+        gap: .6em;
+        cursor: not-allowed;
+        color: $lightGray;
+    }
+
+    .active {
+        border: 2px solid $lightBlue;
+        padding: .6em;
+        border-radius: $bigBR;
+        cursor: default;
+        color: $middleGray;
+
+        .icon {
+            color: $lightBlue;
+        }
+    }
+}

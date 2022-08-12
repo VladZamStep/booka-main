@@ -1,0 +1,66 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.options {
+    color: $hardGray;
+    background-color: $white;
+    position: absolute;
+    top: 64px;
+    -webkit-box-shadow: $thinShadow;
+    box-shadow: $thinShadow;
+    overflow: hidden;
+    z-index: 2;
+
+    @include for-phone-only {
+        top: 110px;
+    }
+
+    .optionItem {
+        width: 260px;
+        display: flex;
+        justify-content: space-between;
+        padding: .8em;
+        background-color: $white;
+
+        .optionText {
+            display: flex;
+            align-items: center;
+            font-size: .9rem;
+            color: $hardGray;
+        }
+
+        .optionCounter {
+            display: flex;
+            align-items: center;
+            gap: .8em;
+
+            .optionBtn {
+                width: 40px;
+                aspect-ratio: 1;
+            }
+
+            .optionBtn {
+                outline: none;
+                border: 1px solid $lightBlue;
+                border-radius: $smallBR;
+                background-color: inherit;
+                font-size: 1.1rem;
+                color: $middleBlue;
+                cursor: pointer;
+                transition: $transition;
+
+                &:hover {
+                    background-color: $superLightBlue;
+                    border: 1px solid $middleBlue;
+                }
+
+                &:disabled {
+                    cursor: default;
+                    background-color: $superLightGray;
+                    border: none;
+                    color: $white;
+                }
+            }
+        }
+    }
+}

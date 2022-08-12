@@ -1,0 +1,88 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.navbar {
+    height: 60px;
+    background-color: $lightBlue;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    border-bottom: 3px solid $superLightGray;
+
+    .navContainer {
+        width: 100%;
+        max-width: 1024px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include for-phone-only {
+            padding-inline: .5em;
+        }
+
+        .logo {
+            color: $white;
+            font-weight: 600;
+            font-size: 1.3rem;
+            height: 40px;
+            padding: .1em 1.1em;
+            border-radius: $smallBR;
+            transition: $transition;
+
+            @include for-phone-only {
+                font-size: 1.15rem;
+                padding: .1em .5em;
+            }
+        }
+
+        .navItems {
+            display: flex;
+
+            .navUserItems {
+                display: flex;
+                align-items: center;
+                gap: .75em;
+                padding: .25em .75em;
+                border-radius: $smallBR;
+                @include thinShadowMixin;
+
+                .userImg {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    border: 1px solid $white;
+                }
+
+                .userName {
+                    font-size: .85rem;
+                    color: $white;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .navBtn {
+            height: 40px;
+            font-size: .9rem;
+            margin-left: 1.2em;
+            background-color: $lightBlue;
+            color: $white;
+            border: none;
+            border-radius: $smallBR;
+            font-weight: 500;
+            padding-inline: 1.1em;
+            cursor: pointer;
+            transition: $transition;
+
+            @include for-phone-only {
+                font-size: .8rem;
+                padding-inline: .25em;
+            }
+        }
+
+        .navBtn:hover,
+        .logo:hover {
+            @include thinShadowMixin;
+        }
+    }
+}

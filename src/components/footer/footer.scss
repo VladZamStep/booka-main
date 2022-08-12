@@ -1,0 +1,49 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.footer {
+    width: 100vw;
+    max-width: 1024px;
+    font-size: .65rem;
+    line-height: 1.3rem;
+    padding: 0 1.2rem;
+
+    @include for-desktop-up {
+        padding: 0;
+    }
+
+    .footerList {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4.2em;
+
+        @include for-phone-only {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footerListItem {
+            list-style: none;
+            cursor: pointer;
+            padding: 0;
+
+            &:hover {
+                color: $lightGray;
+            }
+
+            @include for-phone-only {
+                text-align: center;
+            }
+        }
+    }
+
+    .footerText {
+        font-size: .6rem;
+        margin-bottom: 2em;
+
+        @include for-phone-only {
+            text-align: center;
+        }
+    }
+}

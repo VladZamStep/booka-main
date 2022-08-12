@@ -1,0 +1,198 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.registerPage {
+    height: 100vh;
+    @include flexCenterObject;
+    flex-direction: column;
+
+    .backgroundImg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -50;
+        object-fit: cover;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -40;
+        background-color: $lightBlackTransparent;
+    }
+
+    .registerContainer {
+        display: flex;
+        flex-direction: column;
+        gap: .25em;
+        background-color: $lightWhiteTransparent;
+        padding: 2em;
+        backdrop-filter: blur(5px);
+        border-radius: $smallBR;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        @include for-big-desktop-up {
+            overflow: scroll;
+            max-height: 100vh;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @include for-desktop-up {
+            overflow: scroll;
+            max-height: 95vh;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @include for-tablet-landscape-up {
+            overflow: scroll;
+            max-height: 90vh;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        form {
+            @include flexCenterObject;
+            flex-direction: column;
+
+            .profileImg {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                object-fit: cover;
+                @include darkShadowMixin;
+            }
+
+            .registerInput {
+                font-size: .85rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: .25em;
+                padding-top: .5em;
+                color: $white;
+                width: 100%;
+                position: relative;
+
+                .imageLabel {
+                    font-size: .9rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: .5em;
+                    cursor: pointer;
+                    padding: .25em .5em;
+                    transition: $transition;
+
+                    &:hover {
+                        color: $lightBlue;
+                    }
+                }
+
+                input {
+                    height: 40px;
+                    outline: none;
+                    padding-inline: 1em;
+                    border: 1px solid $lightBlue;
+                    border-radius: $smallBR;
+
+                    &:hover,
+                    &:focus {
+                        border: 1px solid $middleBlue;
+                    }
+                }
+
+                .labelBox {
+                    display: flex;
+                    align-items: center;
+                    padding-left: .2em;
+
+                    .valid {
+                        color: $lightGreen;
+                        font-size: 1rem;
+                    }
+
+                    .invalid {
+                        color: $red;
+                        font-size: .9rem;
+                    }
+
+                    .hide {
+                        display: none;
+                    }
+                }
+
+                .instructions {
+                    position: absolute;
+                    width: fit-content;
+                    left: 0;
+                    bottom: 0;
+                    font-size: 0.75rem;
+                    border-radius: $smallBR;
+                    background: $middleBlue;
+                    color: $white;
+                    padding: 0.25rem;
+                    transform: translate(0%, 110%);
+                    transition: 1s ease-in-out;
+                    z-index: 999;
+                }
+
+                .offscreen {
+                    position: absolute;
+                    width: fit-content;
+                    left: -9999px;
+                    bottom: 0;
+                    transform: translate(0%, 110%);
+                    transition: 1s ease-in-out;
+                    z-index: 999;
+                }
+
+                .infoInstructions {
+                    display: flex;
+                    align-items: center;
+                    gap: .35em;
+                }
+            }
+        }
+
+        .btns {
+            margin-top: .25em;
+            display: flex;
+            gap: .5em;
+
+            .submitBtn {
+                height: 40px;
+                width: 100%;
+                font-size: .9rem;
+                background-color: $lightBlue;
+                color: $white;
+                border: none;
+                border-radius: $smallBR;
+                font-weight: 500;
+                padding-inline: 1.1em;
+                cursor: pointer;
+                transition: $transition;
+
+                &:hover {
+                    background-color: $middleBlue;
+                    @include thinShadowMixin;
+                }
+
+                &:disabled {
+                    background-color: $lightGray;
+                    cursor: no-drop;
+                }
+            }
+        }
+    }
+}

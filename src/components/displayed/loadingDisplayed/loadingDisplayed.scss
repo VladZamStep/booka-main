@@ -1,0 +1,31 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.loadingDisplayedItem {
+    background-color: $lightGray;
+    border-radius: $smallBR;
+    height: 250px;
+    animation: colorType 2s ease-in-out infinite;
+
+    @include for-tablet-landscape-up {
+        height: 350px;
+    }
+
+    @include for-phone-only {
+        height: 300px;
+    }
+
+    @keyframes colorType {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: .5;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+}

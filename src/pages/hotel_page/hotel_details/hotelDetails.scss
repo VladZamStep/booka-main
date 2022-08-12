@@ -1,0 +1,93 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.hotelDetails {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.1em;
+    gap: 1em;
+
+    @include for-tablet-landscape-up {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .hotelDetTexts {
+        flex: 3;
+
+        .hotelTitle {
+            font-size: 1.5rem;
+
+            @include for-phone-only {
+                font-size: 1.15rem;
+            }
+        }
+
+        .hotelDesc {
+            margin-top: .5em;
+            margin-right: 3em;
+            font-size: .85rem;
+            line-height: 1.5em;
+
+            @include for-tablet-landscape-up {
+                margin-right: 0;
+            }
+
+            @include for-phone-only {
+                font-size: .8rem;
+                text-align: justify;
+            }
+        }
+    }
+
+    .hotelPrice {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1em;
+        border-radius: $smallBR;
+        @include standartBlueShadowMixin;
+
+        @include for-phone-only {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1rem;
+            color: $middleGray;
+            margin-bottom: .5em;
+        }
+
+        span {
+            font-size: .8rem;
+        }
+
+        .greenRating {
+            color: $green;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-block: .35em;
+            font-weight: 300;
+        }
+
+        button {
+            width: 100%;
+            height: 40px;
+            background-color: $lightBlue;
+            color: $white;
+            cursor: pointer;
+            font-size: .9rem;
+            border-radius: $smallBR;
+            border: none;
+            outline: none;
+            transition: $transition;
+
+            &:hover {
+                background-color: $middleBlue;
+            }
+        }
+    }
+}

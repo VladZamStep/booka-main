@@ -1,0 +1,84 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.displayContainer {
+    width: 100%;
+    @include bottomShadowMixin;
+
+    .displayed {
+        max-width: 1024px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25em;
+        padding: 1.2rem 1.2rem 1.5rem 1.2rem;
+
+        @include for-desktop-up {
+            padding: 0 0 1.5rem 0;
+        }
+
+        @include for-tablet-landscape-up {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        @include for-phone-only {
+            padding: 3rem 1.2rem 1.5rem 1.2rem;
+        }
+
+
+        .displayedItem {
+            position: relative;
+            color: $white;
+            border-radius: $smallBR;
+            overflow: hidden;
+            height: 250px;
+            -webkit-box-shadow: $standartShadow;
+            box-shadow: $standartShadow;
+            transition: $transition;
+            cursor: pointer;
+
+            @include for-tablet-landscape-up {
+                height: 350px;
+            }
+
+            @include for-phone-only {
+                height: 300px;
+            }
+
+
+            &:hover {
+                transform: scale(1.02);
+            }
+
+            .displayedImg {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .imgItems {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                bottom: .6em;
+                left: .6em;
+
+                .imgName,
+                .imgProp {
+                    color: $white;
+
+                }
+
+                .imgName {
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+
+                .imgProp {
+                    font-size: .9rem;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}

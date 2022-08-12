@@ -1,0 +1,192 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.searchResult {
+    display: flex;
+    justify-content: space-between;
+    gap: .65em;
+    margin-bottom: 1.1em;
+    padding: .65em;
+    border-radius: $smallBR;
+    @include standartShadowMixin;
+    transition: $transition;
+
+    &:hover {
+        @include standartBlackShadowMixin;
+    }
+
+    @include for-phone-only {
+        flex-direction: column;
+    }
+
+    .srImg {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: $smallBR;
+
+        @include for-phone-only {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .srDesc {
+        display: flex;
+        flex-direction: column;
+        flex: 5;
+
+        .srTitle {
+            font-size: 1.15rem;
+            color: $lightBlue;
+            padding-bottom: .6em;
+            cursor: pointer;
+            transition: $transition;
+
+            &:hover {
+                color: $middleBlue;
+            }
+
+            @include for-phone-only {
+                padding-bottom: .2em;
+                text-align: center;
+            }
+        }
+
+        .srDistance {
+            font-size: .7rem;
+            padding-bottom: .6em;
+            text-decoration: underline;
+
+            @include for-phone-only {
+                padding-bottom: .2em;
+            }
+        }
+
+        .srTaxiOpt {
+            font-size: .75rem;
+            background-color: $green;
+            color: $white;
+            width: max-content;
+            padding: .25em;
+            margin: .65em 0 1.2em 0;
+            border-radius: $smallBR;
+
+            @include for-phone-only {
+                margin: .2em 0;
+            }
+        }
+
+        .srSubtitle {
+            font-size: .7rem;
+            font-weight: bold;
+            padding-block: .75em;
+
+            @include for-phone-only {
+                padding-block: .3em;
+            }
+        }
+
+        .srCancelOpt {
+            font-size: .7rem;
+            font-weight: bold;
+            color: $green;
+        }
+
+        .srCancelSubtitle {
+            font-size: .7rem;
+            color: $green;
+        }
+    }
+
+    .srDetails {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-width: 132px;
+
+        @include for-phone-only {
+            min-width: 100%;
+            justify-content: center;
+        }
+
+        .srRating {
+            display: flex;
+            justify-content: right;
+            gap: .65em;
+            align-items: center;
+
+            @include for-phone-only {
+                justify-content: center;
+                padding-bottom: .4em;
+            }
+
+            .srRatText {
+                font-size: .9rem;
+                font-weight: 600;
+            }
+
+            .ratingBtn {
+                text-align: center;
+                font-size: 1rem;
+                width: 1.85em;
+                height: 1.85em;
+                outline: none;
+                border: none;
+                background-color: $middleBlue;
+                color: $white;
+                border-radius: $smallBR;
+                border-bottom-left-radius: 0;
+            }
+        }
+
+        .srOptions {
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+
+            .optInfo {
+                font-size: .65rem;
+                text-align: right;
+
+                @include for-phone-only {
+                    text-align: center;
+                }
+            }
+
+            .price {
+                font-size: 1.2rem;
+                font-weight: 600;
+                text-align: right;
+
+                @include for-phone-only {
+                    text-align: center;
+                }
+            }
+
+        }
+
+        .availBtn {
+            width: 100%;
+            height: 40px;
+            padding-inline: .65em;
+            margin-top: .3em;
+            background-color: $lightBlue;
+            color: $white;
+            cursor: pointer;
+            font-size: .9rem;
+            border-radius: $smallBR;
+            border: none;
+            outline: none;
+            transition: $transition;
+
+            &:hover {
+                background-color: $middleBlue;
+            }
+
+            @include for-phone-only {}
+        }
+    }
+}

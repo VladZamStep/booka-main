@@ -1,0 +1,47 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.loadingPListItem {
+    animation: colorType 2s ease-in-out infinite;
+
+    .loadingPlate {
+        flex-direction: row;
+        border-radius: $smallBR;
+        height: 150px;
+        margin-bottom: .5em;
+        background-color: $lightGray;
+    }
+
+    .loadingPListDesc {
+
+        h1 {
+            box-sizing: border-box;
+            color: transparent;
+            font-size: 1rem;
+            background-color: $lightGray;
+            border-radius: $smallBR $smallBR 0 0;
+        }
+
+        h2 {
+            color: transparent;
+            font-size: .9rem;
+            font-weight: 300;
+            background-color: $lightGray;
+            border-radius: 0 0 $smallBR $smallBR;
+        }
+    }
+
+    @keyframes colorType {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: .5;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+}

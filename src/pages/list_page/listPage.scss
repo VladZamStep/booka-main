@@ -1,0 +1,227 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.listContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.15em;
+    position: relative;
+
+    .listWrapper {
+        width: 100%;
+        max-width: 1024px;
+        display: flex;
+        gap: 1.15em;
+        padding: 0 1.2rem 1.2rem 1.2rem;
+
+        @include for-desktop-up {
+            padding: 0;
+        }
+
+        @include for-tablet-landscape-up {
+            flex-direction: column;
+            width: 100vw;
+        }
+
+        .listSearch {
+            flex: 1;
+            background-color: $white;
+            position: sticky;
+            padding: .65em .95em;
+            border-radius: $smallBR;
+            color: $hardGray;
+            top: 1.1em;
+            @include standartShadowMixin;
+            height: max-content;
+            min-width: 255px;
+
+            @include for-tablet-landscape-up {
+                position: static;
+                min-width: 100%;
+            }
+
+            .listTitle {
+                font-size: 1.2rem;
+                font-weight: 500;
+
+                @include for-tablet-landscape-up {
+                    text-align: center;
+                    border-bottom: 1px solid $lightBlue;
+                    padding-bottom: .25em;
+                    margin-bottom: .25em;
+                }
+            }
+
+            .listItems {
+
+                @include for-tablet-landscape-up {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    justify-content: center;
+                    gap: 0 .5em;
+                }
+
+                @include for-phone-only {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    justify-content: center;
+                    gap: 0 .5em;
+                }
+
+
+                .listItem {
+                    display: flex;
+                    flex-direction: column;
+                    padding: .2rem 0;
+
+                    .checkDatesLabels {
+                        display: flex;
+                        justify-content: space-between;
+                        padding-right: .5em;
+                    }
+
+                    .daysDifference {
+                        font-size: .65em;
+                        color: $green;
+                    }
+
+                    .specLabel {
+                        font-size: .75rem;
+                    }
+
+                    .specInput {
+                        height: 34px;
+                        padding-inline: .65em;
+                        margin-top: .4em;
+                        outline: none;
+                        border: none;
+                        border-radius: $smallBR;
+                        border: 2px solid $lightBlue;
+                        transition: $transition;
+
+                        &:hover {
+                            border: 2px solid $middleBlue;
+                        }
+
+                        @include for-tablet-landscape-up {
+                            font-size: .8rem;
+                        }
+                    }
+
+                    .dateOptionSpan {
+                        height: 34px;
+                        padding-inline: .65em;
+                        margin: .4em 0;
+                        background-color: $white;
+                        border: 2px solid $lightBlue;
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        font-size: .85rem;
+                        border-radius: $smallBR;
+                        transition: $transition;
+
+                        &:hover {
+                            border: 2px solid $middleBlue;
+                        }
+
+                        @include for-tablet-landscape-up {
+                            font-size: .8rem;
+                        }
+                    }
+
+                    .dateR {
+                        position: absolute;
+                        top: 176px;
+                        z-index: 2;
+                        @include darkShadowMixin;
+
+                        @include for-tablet-landscape-up {
+                            top: 125px;
+                            left: 50%;
+                            transform: translate(-50%);
+                        }
+
+                        @include for-phone-only {
+                            top: 190px;
+                            left: 50%;
+                            transform: translate(-50%);
+                        }
+                    }
+                }
+
+                .listAdd {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: .75rem;
+
+                    @include for-tablet-landscape-up {
+                        align-items: flex-start;
+                        flex-direction: column-reverse;
+                    }
+
+                    input {
+                        width: 80px;
+                        height: 34px;
+                        text-align: center;
+                        outline: none;
+                        border: 2px solid $lightBlue;
+                        border-radius: $smallBR;
+                        margin-block: .4em;
+                        transition: $transition;
+
+                        &:hover {
+                            border: 2px solid $middleBlue;
+                        }
+
+                        @include for-tablet-landscape-up {
+                            width: 100%;
+                            font-size: .8rem;
+                            text-align: start;
+                            padding-inline: .65em;
+                        }
+                    }
+                }
+            }
+
+            .searchBtn {
+                width: 100%;
+                height: 34px;
+                padding-inline: .65em;
+                margin: .4em 0;
+                background-color: $lightBlue;
+                color: $white;
+                cursor: pointer;
+                font-size: .9rem;
+                border-radius: $smallBR;
+                border: none;
+                outline: none;
+                transition: $transition;
+
+                &:hover {
+                    background-color: $middleBlue;
+                }
+            }
+
+            .listOptions {
+                display: flex;
+                justify-content: center;
+                transform: translateY(-62px);
+
+                @include for-tablet-landscape-up {
+                    transform: translateY(-58px);
+                }
+
+                @include for-phone-only {
+                    transform: translateY(-105px);
+                }
+            }
+        }
+
+        .listResult {
+            flex: 3;
+            // background-color: $white;
+        }
+    }
+}
